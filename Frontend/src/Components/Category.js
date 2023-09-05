@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink,Link} from 'react-router-dom';
+import {NavLink,Link, useParams} from 'react-router-dom';
 import axios from 'axios';
 import {useState,useEffect} from 'react';
 
@@ -10,19 +10,19 @@ csrfAxios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 
 const Category = (props) => {
+  const { slug } = useParams();
   //list of news articles fitting the category
     const [newsart,setNewsArt] = useState([]);
     const[currentCategory,setCurrentCategory] = useState('');
 
     useEffect(() => {
-      const category = props.match.params.id;
       const config = {
         headers: {
              'Content-Type':'application/json'
         }
       }
       const fetchDataCategory = () => {
-        csrfAxios.post('http://127.0.0.1:8000/api/Blogs/category',{category},config)
+        csrfAxios.post('http://127.0.0.1:8000/api/Blogs/category',{slug},config)
         .then( res =>{
           console.log('Category Data:',res.data)
           setNewsArt(res.data)
@@ -31,37 +31,46 @@ const Category = (props) => {
         .catch( err => err.message)
       }
        fetchDataCategory()
-    },[props.match.params.id])
+    },[slug])
 
-    //function that will display the newsArticles
-    const getNewsArticles = () => {
-      if (Array.isArray(newsart) && newsart.length > 0) {
-        return newsart.map((article) => (
+    const getArticles = () => {
+
+      let list = [];
+          let result = [];
           
-        <div className="row mb-2"> 
-         <div className="col-md-6">
-          <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" key={article.id}>
-            <div className="col p-4 d-flex flex-column position-static">
-              <strong className="d-inline-block mb-2 text-primary-emphasis">{Capitalize(article.category)}</strong>
-              <h3 className="mb-0">{article.title}</h3>
-              <div className="mb-1 text-body-secondary">{article.month} {article.day}</div>
-              <p className="card-text mb-auto">{article.describtion}</p>
-              <Link to={`/blog/${article.slug}`} className="icon-link gap-1 icon-link-hover stretched-link">
-                Continue...
-              </Link>
-            </div>
-            <div className="col-auto d-none d-lg-block">
-              <img src={article.image} alt="img" height="250px" width="200px" />
-            </div>
-          </div>
-          </div>
-          </div>
-        ));
-      } else {
-        // Handle the case when article is not an array or is empty
-        return <p>No articles found.</p>;
-        }
-    }
+          newsart.map(blogPost => {
+              return list.push(
+                  <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                      <div className="col p-4 d-flex flex-column position-static">
+                          <strong className="d-inline-block mb-2 text-primary">{Capitalize(blogPost.category)}</strong>
+                          <h3 className="mb-0">{blogPost.title}</h3>
+                          <div className="mb-1 text-muted">{blogPost.month} {blogPost.day}</div>
+                          <p className="card-text mb-auto">{blogPost.describtion}</p>
+                          <Link to={`/blog/${blogPost.slug}`} className="stretched-link">Continue reading</Link>
+                      </div>
+                      <div className="col-auto d-none d-lg-block">
+                          <img width='200' height='250' src={blogPost.image} alt='thumbnail' />
+                      </div>
+                  </div>
+              );
+          });
+  
+          for (let i = 0; i < list.length; i += 2) {
+              result.push(
+                  <div key={i} className='row mb-2'>
+                      <div className='col-md-6'>
+                          {list[i]}
+                      </div>
+                      <div className='col-md-6'>
+                          {list[i+1] ? list[i+1] : null}
+                      </div>
+                  </div>
+              )
+          }
+  
+          return result;
+      };
+  
     const Capitalize = ( w => {
       //if we pass a word in our case w return ....bla blaa
       //w means for each 
@@ -88,7 +97,7 @@ const Category = (props) => {
                <NavLink className="nav-item nav-link link-body-emphasis" to="/category/travel">Travel</NavLink>
             </nav>
              </div>
-             {getNewsArticles()}
+             {getArticles()}
     </div>
   )
 }

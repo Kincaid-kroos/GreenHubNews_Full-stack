@@ -28,8 +28,7 @@ function App() {
 
                 <Route exact path='/category/:id' element={(props) => <Category {...props} />} />
                
-                <Route exact path="/blog/:id" element={(props) => <BlogDetails {...props}/>} />
-
+                <Route exact path="/blog/:slug" element={ <BlogDetails/>} />
                 <Route exact path='/sign up' element={<SignUp/>} />
                 <Route exact path='/Privacy Terms' element={<PrivacyTerms/>} />
                 <Route element={< Notfound />} />
