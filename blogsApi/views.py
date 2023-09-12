@@ -28,17 +28,16 @@ class BlogPostsFeatured(ListAPIView):
     lookup_field = 'slug'
     permission_classes = (permissions.AllowAny, )
 
+
+
 class BlogPostsCategory(APIView):
     serializer_class = BlogPostsSerializer
     permission_classes = (permissions.AllowAny, )
 
     def post(self, request, format=None):
-        data = self.request.data
-        category = data.get('category')
-        queryset = BlogPosts.objects.order_by('-date_created').filter(category__iexact=category)
+        id = request.data.get('id')  # Change 'category' to 'id' here
+        queryset = BlogPosts.objects.order_by('-date_created').filter(category__iexact=id)
 
         serializer = BlogPostsSerializer(queryset, many=True)
 
         return Response(serializer.data)
-
-
