@@ -55,6 +55,10 @@ const Category = ({match}) => {
     let list = [];
         let result = [];
         
+        if (newsart.length === 0) {
+            return <p>No articles found in this category.</p>;
+          }
+          else {
         newsart.map(blogPost => {
             return list.push(
                 <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -70,7 +74,7 @@ const Category = ({match}) => {
                     </div>
                 </div>
             );
-        });
+        })};
 
         for (let i = 0; i < list.length; i += 2) {
             result.push(
