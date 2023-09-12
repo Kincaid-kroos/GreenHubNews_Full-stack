@@ -6,8 +6,8 @@ import Layout from './HOC/Layout';
 import Notfound from './Components/Notfound';
 import Home from './Components/Home';
 import Blog from './Components/Blog';
-import Category from './Components/Category';
-import BlogDetails from './Components/BlogDetails';
+import Category from './Components/Category.js';
+import BlogDetails from './Components/BlogDetails.js';
 import Footer from './Components/Footer';
 import About from './Components/About';
 import SignUp from './Components/SignUp';
@@ -26,9 +26,9 @@ function App() {
                 <Route path='/about' element={<About />} />
                 <Route exact path='/blog' element={<Blog />} />
 
-                <Route exact path='/category/:id' element={(props) => <Category {...props} />} />
+                <Route exact path='/category/:id' element={<Category />} />
                
-                <Route exact path="/blog/:slug" element={ <BlogDetails/>} />
+                <Route exact path="/blog/:id" element={ <BlogDetails/>} />
                 <Route exact path='/sign up' element={<SignUp/>} />
                 <Route exact path='/Privacy Terms' element={<PrivacyTerms/>} />
                 <Route element={< Notfound />} />
