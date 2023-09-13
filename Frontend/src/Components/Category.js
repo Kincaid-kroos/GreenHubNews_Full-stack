@@ -95,14 +95,6 @@ const Category = ({match}) => {
   return (
     
     <div className='container mt-3'>
-          <div className="container">
-      <div className="jumbotron mt-5">
-        <h1 className="display-4">Welcome To GreenHubNews</h1>
-        <p className="lead">Get the latest Trends and News from across the Globe</p>
-        <hr className="my-4" />
-        <p className="lead mb-0">Hello, this is Kincaid Kroos</p>
-      </div>
-    </div>
     <h3 className='display-4'>{currentCategory} News</h3>
     <div className="nav-scroller py-1 mb-3 border-bottom">
           <nav className="nav nav-underline justify-content-between">

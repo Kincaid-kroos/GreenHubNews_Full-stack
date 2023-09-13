@@ -1,6 +1,4 @@
 
-
-
 from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework.views import APIView
@@ -18,7 +16,7 @@ class BlogPostsList(ListAPIView):
 class BlogPostsDetails(RetrieveAPIView):
     queryset = BlogPosts.objects.all()
     serializer_class = BlogPostsSerializer
-    lookup_field = 'slug'
+    lookup_field = 'slug'  # Use 'slug' as the lookup field
     permission_classes = (permissions.AllowAny, )
 
 
@@ -35,7 +33,7 @@ class BlogPostsCategory(APIView):
     permission_classes = (permissions.AllowAny, )
 
     def post(self, request, format=None):
-        id = request.data.get('id')  # Change 'category' to 'id' here
+        id = request.data.get('id')  
         queryset = BlogPosts.objects.order_by('-date_created').filter(category__iexact=id)
 
         serializer = BlogPostsSerializer(queryset, many=True)
