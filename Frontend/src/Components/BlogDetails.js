@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const csrfAxios = axios.create();
@@ -8,16 +8,16 @@ csrfAxios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 
 
-const BlogDetail = (props) => {
-    const [blog, setBlog] = useState({});
+const BlogDetail = () => {
+const [blog, setBlog] = useState([]);
 
+const { slug } = useParams()
     useEffect(() => {
-        const slug = props.match.params.id;
-
         const fetchData = async () => {
             try {
                 const res = await csrfAxios.get(`http://127.0.0.1:8000/api/Blogs/${slug}`)
                 setBlog(res.data);
+                console.log('data param:', res.data)
             }
             catch (err) {
 
@@ -25,7 +25,9 @@ const BlogDetail = (props) => {
         };
 
         fetchData();
-    }, [props.match.params.id]);
+    }, [slug]);
+
+    
 
     const createBlog = () => {
         return {__html: blog.content}
@@ -38,26 +40,16 @@ const BlogDetail = (props) => {
     };
 
     return (
-        <main>
-        <div class="container">
-        <div className="jumbotron mt-5">
-          <h1 className="display-4 ">Welcome To GreenHubNews </h1>
-          <p className="lead">Get the latest Trends and News from across the Globe</p>
-          <hr className="my-4" />
-          <p className="lead mb-0">
-          <Link to='/blog' className="btn btn-success btn-lg">Checkout the latest news</Link>
-         </p>
-        </div>
-      </div>
+        
         <div className='container mt-3'>
             <h1 className='display-2'>{blog.title}</h1>
             <h2 className='text-muted mt-3'>Category: {capitalizeFirstLetter(blog.category)}</h2>
             <h4>{blog.month} {blog.day}</h4>
             <div className='mt-5 mb-5' dangerouslySetInnerHTML={createBlog()} />
             <hr />
-            <p className='lead mb-5'><Link to='/blog' className='font-weight-bold'>Back to Blogs</Link></p>
+            <p className='lead mb-5'><Link to='/blog' className='font-weight-bold'>Back to Articles</Link></p>
         </div>
-        </main>
+        
     );
 };
 

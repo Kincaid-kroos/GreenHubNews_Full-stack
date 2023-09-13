@@ -160,6 +160,8 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+
 SUMMERNOTE_THEME = 'bs5'  # Show summernote with Bootstrap5
 X_FRAME_OPTIONS = "SAMEORIGIN"
 

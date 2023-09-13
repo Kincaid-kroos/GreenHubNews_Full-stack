@@ -28,7 +28,7 @@ function App() {
 
                 <Route exact path='/category/:id' element={<Category />} />
                
-                <Route exact path="/blog/:id" element={ <BlogDetails/>} />
+                <Route exact path='/blog/:slug' element={ <BlogDetails/>} />
                 <Route exact path='/sign up' element={<SignUp/>} />
                 <Route exact path='/Privacy Terms' element={<PrivacyTerms/>} />
                 <Route element={< Notfound />} />
