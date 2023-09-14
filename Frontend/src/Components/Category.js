@@ -69,7 +69,7 @@ const Category = ({match}) => {
                         <p className="card-text mb-auto">{blogPost.describtion}</p>
                         <Link to={`/blog/${blogPost.slug}`} className="stretched-link">Continue reading</Link>
                     </div>
-                    <div className="col-auto d-none d-lg-block">
+                    <div className="col-auto d-lg-block">
                         <img width='200' height='250' src={blogPost.image} alt='thumbnail' />
                     </div>
                 </div>

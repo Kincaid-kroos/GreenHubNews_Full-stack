@@ -13,13 +13,22 @@ const Footer = () => {
 
   return (
     
+    
     <div className='footercontainer'>
-      <div>
+      <div className='footerinside'>
       <h6 className='padding-left'>Useful Links</h6>
       <ul className="no-bullets">
-        <li><NavLink className='footerlink'  to='/sign up'>Sign up</NavLink></li>
-        <li><NavLink className='footerlink'  to='/about'>About</NavLink></li>
-        <li><NavLink className='footerlink' to='/Privacy Terms'>Privacy Terms</NavLink></li>
+        <li>
+            <a  href="#about-section">About</a>
+          </li>
+          <li>
+            <a  href="#about-section">Latest Articles</a>
+          </li>
+          <li>
+            <a  href="#featured-section">Featured Article</a>
+          </li>
+       
+        
       </ul>
       <h6 className='padding-left'>Contacts</h6>
       <ul className="no-bullets">
@@ -27,7 +36,7 @@ const Footer = () => {
         <p><NavLink className='footerlink design'><EmailIcon/>GreenHubNews@info.co.ke</NavLink> </p></li>
         <li><PhoneIcon/>+254701218138</li>
       </ul>
-       </div>
+      </div>
 
       <div className='footer footerdivcss'>
         <footer className='footercss text-center '>
@@ -36,13 +45,14 @@ const Footer = () => {
         </footer>
         <ul className='socio-icons no-bullets'>
           <li> <a href='https://www.facebook.com/kinc.kroos'><FacebookIcon /></a></li>
-          <li> <a href='https://twitter.com/kiprotichkinca1'><TwitterIcon /></a></li> 
+          <li> <a href='https://twitter.com/kincaid_kroos'><TwitterIcon /></a></li> 
           <li><a href='www.linkedin.com/in/kiprotich-kincaid-b50664203'><LinkedInIcon /></a></li>
           <li><InstagramIcon /></li>
         </ul>
 
       </div>
     </div>
+  
   );
 };
 

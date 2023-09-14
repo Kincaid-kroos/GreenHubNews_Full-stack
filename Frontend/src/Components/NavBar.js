@@ -48,7 +48,7 @@ const NavBarLayout= () => {
               <NavLink className="nav-link text-light" to="/blog">Articles</NavLink>
             </li>
                <div>
-                  <button class="btn btn-secondary rounded-circle" onClick={modalhandler} >Account</button>
+                  <button className="btn btn-warning rounded-circle" onClick={modalhandler} >Account</button>
                </div>
           </ul>
         </div>

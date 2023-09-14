@@ -1,29 +1,110 @@
-
-.containerr {
+.featured {
+  color: #49df23;
+}
+.home-page {
+  background-color: #353131;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+
+.about-section {
+  display: flex;
   align-items: center;
-  height: 40vh;
-  width:100vw;
-  position:inherit;
-  margin-top: 250px;
+  /* align items side by side you combine the two properties below*/
+  flex-direction: row; /* Arrange items horizontally */
+  justify-content: space-between; /* Align items to the start and end of the container */
   
-  background-color: antiquewhite;
-    background-image: url("https://www.transparenttextures.com/patterns/broken-noise.png");
+      
+  }
+  @media screen and (max-width: 600px) {
+      .about-section {
+       flex-direction: column;
+       justify-content: initial;
+      }
+  }
+
+
+.image-desc {
+  width: 375px;
+  height: 500px;
+  border-radius: 50px;
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .image-desc {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+}
+
+
+.about-me-text {
+  display: flex;
+  flex: 2; /* Take up more space than the image */
+  flex-direction: column;
+  width: 90%;
+  
+  
+
+  /* Media query for smaller screens */
+  @media screen and (max-width: 600px) {
+      .about-me-text {
+  width: 100%;
+  
+    /* Uncomment the line below if you want to override flexDirection on small screens */
+    /* flex-direction: column-reverse; */
+  }
+}
+}
+
+
+.styled-text-1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: white;
+  margin-left: 25px;
+  
+  
 
   
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.styled-text-2 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #27AE60;
+  margin-left: 25px;
+}
+.styled-text-3 {
+  font-size: 17px;
+  color: white;
+  margin-left: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .centered-form {
   max-width: 100%;
   margin-top: 10px;
   padding: 5px;
-  background-color: #f8f8f8;
+  background-color: #3b3737;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
+.subscribe {
+  color: #49df23;
+  font-weight: bold;
+}
 .form-header {
   font-size: 24px;
   font-weight: bold;
@@ -38,11 +119,14 @@
   display: block;
   font-weight: bold;
 }
+.email {
+  color: #f8ce10;
+}
 
 .form-input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #a39999;
   border-radius: 4px;
   font-size: 16px;
 }
@@ -79,7 +163,7 @@
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(15, 13, 13, 0.2);
+  box-shadow: 0 2px 4px rgba(15, 13, 13, 0.3);
   z-index: 9999;
   width: 300px;
   text-align: center;
