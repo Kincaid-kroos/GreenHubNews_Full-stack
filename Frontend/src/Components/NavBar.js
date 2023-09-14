@@ -8,13 +8,24 @@ import '../Styles/NavBar.css'
 const NavBarLayout= () => {
 
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const[modal,setModal] = useState(false)
 
   const handleToggle = () => {
     setIsNavOpen(!isNavOpen);
   };
+  
+  const modalhandler = () => {
+    setModal(true)
+
+  }
+  const closeModal = () => {
+    setModal(false)
+  }
+
+  
   return (
 
-
+<div>
     <nav className="navbar navbar-expand-lg bg-success ">
       <div className="container-fluid">
         <Link className="navbar-brand text-light" to="/">
@@ -34,27 +45,84 @@ const NavBarLayout= () => {
               <NavLink className="nav-link  text-light" aria-current="page" to="/">Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link text-light" to="/blog">Blogs</NavLink>
+              <NavLink className="nav-link text-light" to="/blog">Articles</NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link text-light" to="/about">About</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link " to="/sign up">
-                <button className='rounded-circle'>
-                Sign Up!
-                </button></NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link " to="/blog">
-                <button className='rounded-circle'>
-                Login
-                </button></NavLink>
-            </li>
+               <div>
+                  <button class="btn btn-secondary rounded-circle" onClick={modalhandler} >Account</button>
+               </div>
           </ul>
         </div>
+       
+
       </div>
     </nav>
+    {modal && (
+        <div
+          className={`modal fade show`}
+          tabIndex="-1"
+          role="dialog"
+          style={{ display: 'block' }}
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Login/Register</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  aria-label="Close"
+                  onClick={closeModal}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <form>
+                  <div className="mb-3">
+                    <label>Email address</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      aria-describedby="emailHelp"
+                    />
+                    <div id="emailHelp" className="form-text">
+                      We'll never share your email with anyone else.
+                    </div>
+                  </div>
+                  <div className="mb-3">
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="mb-3 form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                    />
+                    <label className="form-check-label">Check me out</label>
+                  </div>
+                </form>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={closeModal}
+                >
+                  Close
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+}
+
+
+  </div>
   );
 };
 
