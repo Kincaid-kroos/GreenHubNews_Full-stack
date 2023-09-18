@@ -84,16 +84,16 @@ useEffect(() => {
   <section className="about-section">  
     <img src={image}  alt='Kincaid' className="image-desc"/>
     <div className="about-me-text">
-    <p className="styled-text-1">Hello 👋,</p>
-    <p className="styled-text-2">This is GreenHubNews <img src={logo} alt='' style={{ width: '50px', height: '35px' }} /></p>
+    <p className="styled-text-1">Hello there,</p>
+    <p className="styled-text-2">This is GreenHubNews <img src={logo} alt='' style={{ width: '40px', height: '30px' }} /></p>
     <p className="styled-text-2"></p>
     <p className="styled-text-3">
           We bring you the latest Trends all around the Globe <br/>
-          With a combination of both class and self-taught experience,<br/>
-          i have skills and passion to build robust,and easily maintainable<br/>
-          web applications and Analyzing big data.<br/>
-          Committed to staying current with the latest technologies<br /> to deliver outstanding solutions<br/>
-         & open to learning from industry experts. <br/>
+          We are committed to providing the latest news from,<br/>
+          across the world.<br/>
+          Committed to delivering the current latest trending<br /> 
+          news to your door step <br/>
+
     </p>
 </div>
   </section>

@@ -27,6 +27,7 @@ class BlogPosts(models.Model):
     #set it on admin.py
     content = models.TextField()
     featured = models.BooleanField(default=False)
+    latest = models.BooleanField(default=False)
     #This is like combining time_created and time_updated
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     
@@ -80,14 +81,4 @@ class BlogPosts(models.Model):
     
     def __str__(self):
         return self.title
-
-
-
-
-
-
-
-
-
-
-
+    
