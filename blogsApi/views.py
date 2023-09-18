@@ -12,6 +12,12 @@ class BlogPostsList(ListAPIView):
     lookup_field = 'slug'
     permission_classes = (permissions.AllowAny, )
 
+class BlogPostsLatest(ListAPIView):
+    queryset = BlogPosts.objects.order_by('-date_created')
+    serializer_class = BlogPostsSerializer
+    lookup_field = 'slug'
+    permission_classes = (permissions.AllowAny, )
+
 
 class BlogPostsDetails(RetrieveAPIView):
     queryset = BlogPosts.objects.all()
