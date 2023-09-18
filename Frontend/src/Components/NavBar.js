@@ -26,7 +26,7 @@ const NavBarLayout= () => {
   return (
 
 <div>
-    <nav className="navbar navbar-expand-lg bg-success ">
+    <nav className="navbar navbar-expand-lg nav-color">
       <div className="container-fluid">
         <Link className="navbar-brand text-light" to="/">
           <img src={logo} alt='' style={{ width: '50px', height: '35px' }} />GreenHubNews
