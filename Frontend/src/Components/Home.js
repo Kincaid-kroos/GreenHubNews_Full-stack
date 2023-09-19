@@ -119,8 +119,8 @@ useEffect(() => {
  </div>
    
 
- <div class="container px-4 py-5" id="featured-3">
-  <h2 className="pb-2 border-bottom">Latest Articles</h2>
+ <div class="container px-4 py-5 mt-10" id="featured-3">
+  <h2 className="pb-2 border-bottom bg-success">Latest Articles</h2>
   <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
     {latest.map((article) => (
       <div className="feature col" key={article.id}>

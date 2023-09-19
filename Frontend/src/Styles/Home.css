@@ -1,8 +1,9 @@
 .featured {
   color: #49df23;
+  font-family: 'Times New Roman', Times, serif;
 }
 .home-page {
-  background-color: #353131;
+  background-color: rgb(11, 11, 102);
   display: flex;
   justify-content: center; /* Center the content horizontally */
   align-items: center; /* Center the content vertically */
@@ -96,7 +97,7 @@
   max-width: 100%;
   margin-top: 10px;
   padding: 5px;
-  background-color: #3b3737;
+  background-color: rgb(11, 11, 102);
   border-radius: 10px;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
