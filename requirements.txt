@@ -1,7 +1,7 @@
 asgiref==3.7.2
 bleach==6.0.0
 dj-database-url==2.1.0
-Django==4.2.3
+Django==3.2.19
 django-cors-headers==4.1.0
 django-summernote==0.8.20.0
 djangorestframework==3.14.0
