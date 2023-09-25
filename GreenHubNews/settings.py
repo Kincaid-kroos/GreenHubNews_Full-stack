@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,13 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure--p5sj=uuo8*%_96q$ehs6(y#1d+cp4eoir)6hwd@&m31m^o4ig'
-SECRET_KEY = os.environ.get("SECRET_KEY")
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG","False").lower() == "true"
+SECRET_KEY = 'django-insecure--p5sj=uuo8*%_96q$ehs6(y#1d+cp4eoir)6hwd@&m31m^o4ig'
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
- 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 'http://127.0.0.1:3000',
@@ -88,22 +87,14 @@ WSGI_APPLICATION = 'GreenHubNews.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'GreenHubNewsDB',
-       'USER': 'postgres',
-       'PASSWORD': '3113',
-       'HOST': 'localhost'
-   }
-} 
-# settings.py
-
-# Parse the DATABASE_URL environment variable from Render.com
-database_url = os.environ.get("DATABASE_URL")
-DATABASES = {
-    'default': dj_database_url.parse(database_url)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'GreenHubNewsDB',
+        'USER': 'postgres',
+        'PASSWORD': '3113',
+        'HOST': 'localhost'
+    }
 }
-
 
 
 # Password validation
